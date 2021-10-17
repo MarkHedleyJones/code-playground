@@ -46,3 +46,11 @@ int main()
   t.join();
   t2.join();
 }
+
+// A spinlock is more efficient for synchronizing threads (than a mutex) if the
+// expected time to syncronise is short. This is because the spinlock
+// "busy-waits", continuously polling the resource until it becomes available.
+// This keeps the thread active and if another thread unlocks the resource it
+// can acquire the resource immediately. The thread is not put to sleep
+// (unless the operating system forces a switch because the thread's time
+// quanta was exceeded).
