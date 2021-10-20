@@ -1,5 +1,18 @@
 
-all: spinLockSleep mutex conditionVariable atomicCondition test
+all: \
+	test \
+	spinLockSleep \
+	mutex \
+	conditionVariable \
+	atomicCondition \
+	producerConsumer \
+	spinlockAcquireRelease \
+	transitivity \
+	acquireReleaseWithWaiting \
+	acquireReleaseWithoutWaiting
+
+test: test.cpp
+	g++ -pthread -o test test.cpp
 
 spinLockSleep: spinLockSleep.cpp
 	g++ -pthread -o spinLockSleep  spinLockSleep.cpp
@@ -13,5 +26,18 @@ conditionVariable: conditionVariable.cpp
 atomicCondition: atomicCondition.cpp
 	g++ -pthread -o atomicCondition atomicCondition.cpp
 
-test: test.cpp
-	g++ -pthread -o test test.cpp
+
+producerConsumer: producerConsumer.cpp
+	g++ -pthread -o producerConsumer producerConsumer.cpp
+
+spinlockAcquireRelease: spinlockAcquireRelease.cpp
+	g++ -pthread -o spinlockAcquireRelease  spinlockAcquireRelease.cpp
+
+transitivity: transitivity.cpp
+	g++ -pthread -o transitivity  transitivity.cpp
+
+acquireReleaseWithWaiting: acquireReleaseWithWaiting.cpp
+	g++ -pthread -o acquireReleaseWithWaiting  acquireReleaseWithWaiting.cpp
+
+acquireReleaseWithoutWaiting: acquireReleaseWithoutWaiting.cpp
+	g++ -pthread -o acquireReleaseWithoutWaiting  acquireReleaseWithoutWaiting.cpp
