@@ -9,7 +9,8 @@ all: \
 	spinlockAcquireRelease \
 	transitivity \
 	acquireReleaseWithWaiting \
-	acquireReleaseWithoutWaiting
+	acquireReleaseWithoutWaiting \
+	relaxed
 
 test: test.cpp
 	g++ -pthread -o test test.cpp
@@ -41,3 +42,6 @@ acquireReleaseWithWaiting: acquireReleaseWithWaiting.cpp
 
 acquireReleaseWithoutWaiting: acquireReleaseWithoutWaiting.cpp
 	g++ -pthread -o acquireReleaseWithoutWaiting  acquireReleaseWithoutWaiting.cpp
+
+relaxed: relaxed.cpp
+	g++ -pthread -o relaxed  relaxed.cpp
